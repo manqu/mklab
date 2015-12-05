@@ -1,0 +1,158 @@
+{% extends "shop/layout.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-11 col-sm-11 col-ms-11">
+
+        </div>
+    </div>
+</div>
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false" >
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item">
+                <a href="{% url 'shop:item_info' 11 %}"><img src="https://dl.dropboxusercontent.com/u/102804534/main_ring.png" alt="..." style="width:100%; height:auto%;"></a>
+            </div>
+            <div class="item active">
+              <a href="{% url 'shop:item_info' 10 %}"><img src="/media/main_bottle.png" alt="..." style="width:100%; height:auto%;"></a>
+            </div>
+            <div class="item">
+              <a href="{% url 'shop:item_info' 12 %}"><img src="https://dl.dropboxusercontent.com/u/102804534/main_belly.png" alt="..." style="width:100%; height:auto%;">
+            </div></a>
+            <div class="item">
+              <a href="{% url 'shop:item_info' 13 %}"><img src="https://dl.dropboxusercontent.com/u/102804534/main_book.png" alt="..." style="width:100%; height:auto%;">
+            </div></a>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="featured">
+            {% for featured in featured_list %}
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <div class="thumbnail" id="thumbnail">
+                <div class="featured_item">
+
+                    {% if featured.main_image %}
+
+                    <a href="{% url 'shop:featured_item' featured.pk %}">
+                        <img src="{{ featured.main_image.url }}" alt="..." id="featured_img" style="display:block;">
+                    </a>
+
+                    <div class="caption" style="display:block;">
+                        <a href="{% url 'shop:featured_item' featured.pk %}">
+                            <h4>{{featured.title}}</h4>
+                        </a>
+                        <p>{{featured.summary}}</p>
+                    </div>
+
+                    {% else %}
+                    <img src="#" alt="no image">
+                    {% endif %}
+
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="margin-top:20px;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-" style="display: block; margin-left: auto; margin-right: auto; text-align: center;">
+
+            <script type="text/javascript" src="//cdn.playbuzz.com/widget/feed.js"></script>
+            <div class="pb_feed" data-embed-by="2badf394-f374-4056-a023-b7c25ad3fece" data-game="/kyscjf10/a-11-19-2015-5-50-25-pm" data-height="250" data-recommend="false" data-comments="false" data-shares="false" ></div>
+            <!--<object id="qh9523n1" type="application/x-shockwave-flash" data="http://files.quizsnack.net/app/swf/EmbedCanvas.swf?hash_id=qh9523n1&t=1446397719" width="350" height="260" style="">
+            <param name="movie" value="http://files.quizsnack.net/app/swf/EmbedCanvas.swf?hash_id=qh9523n1&t=1446397719">
+            <param name="allowScriptAccess" value="always">
+            <param name="wmode" value="transparent">
+            </object>
+            <noscript>To view this quiz you need to have Flash Player 9 or newer installed and JavaScript enabled. Use PollSnack to easily create <a href="http://www.pollsnack.com/" title="Online survey software, web poll & questionnaire tool">online surveys</a> </noscript>-->
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-" style="display: block; margin-left: auto; margin-right: auto; margin-top:20px;">
+            <div class="banner" style="text-align: center;">
+                <a href="https://dl.dropboxusercontent.com/u/102804534/%EC%86%8C%EC%9D%8C%EC%B8%A1%EC%A0%95%EA%B8%B0_%EC%97%B0%EA%B5%AC%EB%B3%B4%EA%B3%A0%EC%84%9C.docx" target="_blank">
+                    <img src="https://dl.dropboxusercontent.com/u/102804534/banner1.png" style="width:300px; display:block; margin-bottom:10px; margin-left: auto; margin-right: auto;">
+                </a>
+                <a href="{% url 'shop:user_exp' %}">
+                    <img src="https://dl.dropboxusercontent.com/u/102804534/banner2.png" style="width:300px; display:block; margin-bottom:15px; margin-left: auto; margin-right: auto;">
+                </a>
+                <img src="https://dl.dropboxusercontent.com/u/102804534/ad.png" style="width:300px; display:block; margin-left: auto; margin-right: auto;">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-" style="display: block; margin-left: auto; margin-right: auto; margin-top:20px; text-align: center;">
+            <a href="http://gocy478.egloos.com/" target="_blank">
+                <img src="https://dl.dropboxusercontent.com/u/102804534/banner3.png" style="width:180px;">
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--{ for image in featured_image %}
+<img src="{{ image.image.url }}" alt="...">
+{ endfor %}-->
+
+    <!--<div class="container">
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-ms-1"></div>
+        </div>
+
+        <div class="row">
+            <h3 id="new_items">새 제품</h3>
+            <hr/>
+        {% for item in item_list %}
+            <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2">
+                <div class="thumbnail">
+                    {% if item.main_image %}
+                        <a href="{% url 'shop:item_info' item.pk %}"><img id="thumbnail_img" src="{{ item.main_image.url }}" class="img-circle"></a>
+                    {% else %}
+                        <img class="media-object" src="">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-1 col-sm-1 col-ms-1"></div>
+        </div>
+    </div>-->
+
+
+
+
+
+{% endblock %}

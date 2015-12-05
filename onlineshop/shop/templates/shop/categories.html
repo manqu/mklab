@@ -1,0 +1,48 @@
+{% extends 'shop/layout.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{% block content %}
+
+
+<div class="container" style="text-align:center;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <div class="page-header">
+              <h2>About<small> M. K. LAB</small></h2>
+            </div>
+
+            <br/>
+            <div>
+                <p>M.K. LAB은 여러분의 꿈을 현실로 이뤄드립니다. </p>
+                <p><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact: mygurmi@gmail.com</p>
+            </div>
+            <br/>
+
+            <hr/>
+
+            <div class="container" >
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><br/><span class="label label-default">카테고리: </span></li>
+                    {% for categories in category_list %}
+                        <li>
+                            <a href="{% url 'shop:each_category' categories.pk %}">
+                                <button class="btn btn-info" type="button">{{categories.name}} <span class="badge">{{categories.id}}</span></button>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+

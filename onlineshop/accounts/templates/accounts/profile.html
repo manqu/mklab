@@ -1,0 +1,32 @@
+{% extends 'shop/layout.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+
+            <div style="display:inline-block; text-align:center; display: block; margin-left: auto; margin-right:auto; margin-top: 30px; padding:10px; font-family:Cinzel;">
+
+                <div class="page-header">
+                  <h1><small>My Page</small></h1>
+                </div>
+
+                <ul style="list-style:none;">
+                    <li>ID: {{ user }}</li>
+                    <li>PASSWORD: </li>
+                    <li>EMAIL: {{email}}</li>
+                </ul>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'shop/layout.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{% block content %}
+
+<div class="container" style="margin-top:50px;">
+    <div class="row">
+      {% for item in item_list %}
+      <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+        <div class="thumbnail" id="thumbnail" style="border: 1px solid #ddd;">
+          <img src="{{item.main_image.url}}" />
+          <div class="caption" style="text-align:center;">
+            <h3>{{item.name}}</h3>
+            <p><a href="{% url 'shop:item_info' item.pk %}" class="btn btn-default" role="button">더보기</a></p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

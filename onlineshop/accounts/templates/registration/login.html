@@ -1,0 +1,24 @@
+{% extends 'shop/layout.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+
+{% block content %}
+
+<div style="border:1px solid #e3e3e3; display:inline-block; text-align:center; width:30%; display: block; margin-left: auto; margin-right:auto; margin-top: 30px; padding:10px; font-family:Cinzel; " >
+
+    <h4>로그인</h4>
+
+    <form action="" method="POST" >
+        {%csrf_token%}
+        <table style="font-size:15px;">
+            {{form.as_table}}
+        </table>
+        <br/>
+        <input type="submit" class="btn btn-info">
+
+    </form>
+
+</div>
+
+{% endblock content %}
